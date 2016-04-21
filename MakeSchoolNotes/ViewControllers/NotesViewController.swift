@@ -75,7 +75,7 @@ class NotesViewController: UITableViewController {
                     try realm.write(){
                         realm.add(source.currentNote!)
                     }
-                case "Delete":
+                    case "Delete":
                     try realm.write(){
                         realm.delete(self.SelectedNote!)
                         }
@@ -99,7 +99,7 @@ extension NotesViewController //เพิ่มความยืดหยุ่
 {
     //mark: Delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        SelectedNote=notes[indexPath.row]
         self.performSegueWithIdentifier("ShowExistingNote", sender: self)
     }
     
