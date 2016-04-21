@@ -77,8 +77,12 @@ class NotesViewController: UITableViewController {
                     }
                     case "Delete":
                     try realm.write(){
-                        realm.delete(self.SelectedNote!)
+                        if ((SelectedNote?.self.content) != nil)
+                        {
+                            realm.delete(self.SelectedNote!)
                         }
+                        
+                    }
                     let sourse = segue.sourceViewController as! NoteDisplayViewController
                     sourse.note = nil
                     
